@@ -6,7 +6,7 @@ from collections import deque
 #readline()으로 입력하면 입력 후 엔터가 줄 바꿈 기호로 입력이 되는데, 이 공백 문자를 제거하려면
 #restrip()함수를 사용해야한다.
 input = sys.stdin.readline
-N = int(input())
+N = int(input())      
 
 graph = []  # 입력받을 그래프를 담을 리스트 선언
 result = []  # 결과를 담을 리스트 선언

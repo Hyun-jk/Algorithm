@@ -1,3 +1,4 @@
+#리모컨
 """
 current_temperature,set_temperature= map(int,input().split())
 differences = abs(set_temperature - current_temperature)
