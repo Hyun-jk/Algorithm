@@ -1,14 +1,10 @@
 # 숨바꼭질
-# 5, 17 5, 10,9,18,17
-# 어떤 식으로 풀어야할까 보통 bfs문제는 2차원 리스트로 위치값을 조정해서 풀었는데
-# 이거는 2차원식이 아닌것 같고 그러면 1차원 리스트로 풀면 되려나?
+
 from collections import deque
 import sys
 input = sys.stdin.readline
 
 n, k = map(int, input().split())
-move = [1, -1, 2]
-result = []
 
 
 def bfs(v):
@@ -21,29 +17,11 @@ def bfs(v):
             if 0 <= i <= 100000 and not visited[i]:
                 visited[i] = visited[v] + 1
                 q.append(i)
+# 시작값이 5라고 생각을 하면 , i = 4,6,10이 된다. 이 때
+# 1차원 리스트 visited을 이용해서 인덱스 4,6,10을 +1을 해주면 이것을 시간이라고 생각을 하면 된다.
+#
 
 
 n, k = map(int, sys.stdin.readline().split())
 visited = [0 for i in range(100001)]
 print(bfs(n))
-
-
-def bfs(n, k):
-    queue = deque()
-    queue.append(n)
-    count = 0
-    while queue:
-        x = queue.popleft()
-        print(f'x={x}')
-        for i in range(3):
-            nx = x + move[i]
-            if i == 2:
-                nx = x * move[i]
-            print(f'i = {i}일때 nx = {nx}')
-            if nx == k:
-                return count
-            if 0 < nx:
-                queue.append(nx)
-
-
-print(bfs(n, k))
