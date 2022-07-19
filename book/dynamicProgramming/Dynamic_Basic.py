@@ -46,16 +46,16 @@ print(fibo(99))
 #호출되는 함수 확인을 위한 코드
 d =[0] * 100
 
-def pibo(x):
+def fibo(x):
     print('f(' + str(x)+ ')', end=' ')
     if x ==1 or x ==2:
         return 1
     if d[x] != 0:
         return d[x]
-    d[x] = pibo(x - 1) + pibo(x -2 )
+    d[x] = fibo(x - 1) + fibo(x -2 )
     return d[x]
 
-pibo(6)
+fibo(6)
 
 #피보나치 수열 소스코드(반복적)
 #앞서 계산된 결과를 저장하기 위한 DP 테이블 초기화
