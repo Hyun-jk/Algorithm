@@ -16,7 +16,7 @@ for i in range(2,n):
     print(array)
     print(f"i = {i} d[{i}] = {d[i]} d[{i-1}] = {d[i-1]} d[{i-2}] = {d[i-2]}")
 #계산된 결과 출력
-print(d[n-1])
+print(d[n-1]) 
 
 
 
