@@ -1,11 +1,5 @@
 # 토마토
-"""
-풀이)
-1. 먼저 토마토가 존재하는 좌표를 전부 찾아 리스트에 저장해둔다
-2. 리스트 안의 좌표들을 하나씩 bfs로 탐색을 하여 익지않은 토마토가 있는 경우 현재 좌표의 값을 1을 더해준다
-3. 최종적으로 다시한번 graph를 탐색하여 0이 존재하면 -1, 그렇지 않으면 graph안의 최대값에서 1을 빼서 출력한다
 
-"""
 import sys
 from collections import deque
 input = sys.stdin.readline
@@ -19,46 +13,46 @@ dy = [0, 0, 1, -1]
 
 def bfs(lst):
     q = deque()
-    for i in lst:
+    
+    #익은 토마토의 위치를 모두 q에 넣는다
+    for i in lst: 
         q.append(i)
-        print(f'q는 {q}')
+    
     while q:
         x, y = q.popleft()
-        print(f'x = {x} y ={y}')
+        
         for i in range(4):
             nx = x+dx[i]
-            ny = y+dy[i]
-            if not(0 <= nx < n and 0 <= ny < m):
-                continue
-            if graph[nx][ny] == -1:
-                continue
-            if graph[nx][ny] == 0:
+            ny = y + dy[i]
+
+            if 0<=nx < n and 0<= ny < m and graph[nx][ny] == 0:
                 q.append((nx, ny))
                 graph[nx][ny] = graph[x][y]+1
-                print(q)
-                print(graph[nx][ny])
 
-
-# 이 부분이 이해가 잘안된다.
-# 왜 토마토가 있는 부분을 먼저 리스트에 넣고 코드를 진행을 하는걸까?
+#토마토 위치 정보를 넣는다.
 lst = []
 for i in range(n):
     for j in range(m):
         if graph[i][j] == 1:
             lst.append((i, j))
-print('토마토가 있는 위치 리스트에 추가')
-print(lst)
+
+#인접한 토마토  익힘
 bfs(lst)
 
-
+#결과 확인
 def result():
     anwser = 0
     for i in range(n):
         for j in range(m):
+            #좌표를 돌면서 안익은 토마토(0)이 발견되면 -1
             if graph[i][j] == 0:
                 return print(-1)
+
+            #다 익었으면 제일 오래 걸린 날짜를 출력한다.    
             anwser = max(anwser, graph[i][j])
-    return print(anwser-1)
+    
+    #graph[nx][ny] = graph[x][y] + 1 로 코드를 짯으니, 날짜를 알고 싶으면, -1을 해서 출력을 해야한다.
+    return print(anwser-1) 
 
 
 result()
