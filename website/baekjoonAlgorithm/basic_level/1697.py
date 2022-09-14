@@ -19,8 +19,8 @@ def bfs():
                  q.append(nx)
 
 n ,k = map(int,input().split())
-Max = 10 ** 5
-dist = [0] *(Max+1)
+Max = 10 ** 5 
+dist = [0] *(Max+1) #반복되는 작업을 최소화하기 위해(메모리)
 bfs()
 
 
