@@ -1,6 +1,7 @@
 # 치킨 배달
-
+import sys
 from itertools import combinations
+input = sys.stdin.readline
 
 n, m = map(int, input().split())
 chicken, house = [], []
@@ -37,3 +38,5 @@ def get_sum(candidate):
 result = 1e9
 for candidate in candidates:
     result = min(result, get_sum(candidate))
+
+print(result)
