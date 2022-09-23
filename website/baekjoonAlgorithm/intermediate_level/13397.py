@@ -1,5 +1,4 @@
 #구간 나누기2(이분탐색 응용)
-
 n,m = map(int,input().split())
 array = list(map(int,input().split()))
 
