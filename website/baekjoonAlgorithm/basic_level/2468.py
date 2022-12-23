@@ -30,9 +30,6 @@ def count_safe(visited):
             if visited[i][j] == 0:
                 bfs(i, j, max_height)
                 count += 1
-
-    print(visited)
-    print(count)
     return count
 
 
@@ -53,8 +50,7 @@ while height <= max_height:
         for j in range(n):
             if graph[i][j] <= height and visited[i][j] == 0:
                 bfs(i, j, height)
-    print(f'height={height}')
-    print(visited)
+
     count = count_safe(visited)
     answer = max(answer, count)
     visited = [[0]*n for _ in range(n)]
