@@ -1,8 +1,5 @@
 # 감시 피하기
 from itertools import combinations
-
-from numpy import _FlatIterSelf
-
 n = int(input())  # 복도의 크기
 board = []  # 복도 정보(N X N)
 teachers = []  # 모든 선생님 위치 정보
