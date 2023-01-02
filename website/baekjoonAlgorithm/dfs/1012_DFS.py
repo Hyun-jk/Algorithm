@@ -1,18 +1,21 @@
-#유기농 배추 >>>이해가 안된다
-def dfs(x,y):
-    dx = [0,0,-1,1]
-    dy = [1,-1,0,0]
+import sys
+sys.setrecursionlimit(10**6)
+# 유기농 배추 >>>이해가 안된다
+
+def dfs(x, y):
+    dx = [0, 0, -1, 1]
+    dy = [1, -1, 0, 0]
 
     for i in range(4):
         nx = x + dx[i]
         ny = y + dy[i]
 
-        if (0<= nx <M) and (0 <= ny <N) :
-            if graph[ny][nx] ==1:
-                graph[ny][nx] =-1
-                dfs(nx,ny)
+        if (0 <= nx < M) and (0 <= ny < N):
+            if graph[ny][nx] == 1:
+                graph[ny][nx] = -1
+                dfs(nx, ny)
 
-### 1                    
+# 1
 T = int(input())
 
 for i in range(T):
@@ -25,7 +28,7 @@ for i in range(T):
         X, Y = map(int, input().split())
         graph[Y][X] = 1
 
-### 3        
+# 3
     # dfs 활용해서 배추 그룹 수 세기
     for x in range(M):
         for y in range(N):
